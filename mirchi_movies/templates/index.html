@@ -1,0 +1,410 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Mirchi Movies</title>
+      <meta charset="UTF-8">
+      <meta name="description" content="Watch Mirchi Movies & TV shows online or stream right to your smart TV, game console, PC, Mac, mobile, tablet and more.">
+      <meta name="keywords" content="watch movies online, watch TV shows, watch online movies, watch TV online, no download, full length movies">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!-- stylesheets -->
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+
+      <!-- Swiper Slider Css -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+      <!-- Micro-Slider JS by LGSE  -->
+      <link rel="stylesheet" href="https://github.com/lgse/micro-slider" />
+      <!-- Hammer JS gesture library -->
+      <link rel="stylesheet" href="https://github.com/hammerjs/hammer.js" />
+
+      <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+  </head>
+
+  <body>
+      <div id="wrapper">
+          <div id="content-wrapper">
+               <!-- carousel section starts -->
+               <section class="image-sec">
+                    <div class="container">
+                         <div class="row align-items-center">
+                              <div class="col-lg-5">
+                                   <div class="logo-sec">
+                                        <img src="{% static 'assets/img/logo-with-name2.png' %}" alt="logo" class="img-fluid"/>
+                                   </div>
+                                   <div class="textBox">
+                                        <h1>Join the fastest growing and largest streamer community in the world.</h1>
+                                        <button type="button" class="btn btn-get">Get Started</button>
+                                   </div>
+                              </div>
+                              <div class="col-lg-7">
+                                   <div class="imgBox">
+                                         <div class="card cardImage1">
+                                              <img src="{% static 'assets/img/imgBox/image1.jpg' %}" alt="" class="img-fluid" />
+                                         </div>
+                                         <div class="card cardImage2">
+                                              <img src="{% static 'assets/img/imgBox/image2.jpg' %}" alt="" class="img-fluid" />
+                                         </div>
+                                         <div class="card cardImage3">
+                                              <img src="{% static 'assets/img/imgBox/image3.jpg' %}" alt="" class="img-fluid" />
+                                         </div>
+                                         <div class="card cardImage4">
+                                              <img src="{% static 'assets/img/imgBox/image4.jpg' %}" alt="" class="img-fluid" />
+                                         </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </section>
+               <!-- carousel section ends -->
+
+               <!-- carousel slider section starts -->
+               <section class="carousel-slider-sec">
+                   <div class="container">
+                        <div class="row">
+                             <div class="col-lg-12">
+                                   <div class="inner-page-content">
+                                        <div class="movies-tab">
+                                             <h4>Discover Movies</h4>
+                                             <ul class="nav main_nav_tab" id="myTab" role="tablist">
+                                                 <li class="nav-item"><a class="nav-link active" id="random-tab" data-bs-toggle="tab" data-bs-target="#random" role="tab" aria-controls="random" aria-selected="true">Random</a></li>
+                                                 <li class="nav-item"><a class="nav-link" id="popular-tab" data-bs-toggle="tab" data-bs-target="#popular" role="tab" aria-controls="popular" aria-selected="false">Popular</a></li>
+                                                 <li class="nav-item"><a class="nav-link" id="recent-tab" data-bs-toggle="tab" data-bs-target="#recent" role="tab" aria-controls="recent" aria-selected="false">Recent</a></li>
+                                             </ul>
+                                             <div class="search-container">
+                                                  <input class="input-open" type="search" placeholder="search something here" id="searchField" autocomplete="off" value="">
+                                                  <div class="searchIcon"></div>
+                                             </div>
+                                        </div>
+                                             <div class="tab-content allSliderSec" id="myTabContent">
+                                                  <div class="tab-pane fade show active mt-5" id="random" role="tabpanel" aria-labelledby="random-tab">
+                                                       <div class="random-sec mb-5 mb-lg-3">
+                                                             <h6>Collections</h6>
+
+                                                             <div class="owl-carousel owl-theme">
+                                                                 {% for img_list in lists %}
+                                                                  <div class="card myCard">
+<!--                                                                      <a href="">-->
+                                                                          <img src="{{ img_list.image.url }}" alt="Movie Image" class="img-fluid"/>
+<!--                                                                      </a>-->
+                                                                  </div>
+
+<!--                                                                  <div class="card myCard">-->
+<!--                                                                       <img src="assets/img/myCard/card2.jpg" alt="Movie Image" class="img-fluid"/>-->
+<!--                                                                  </div>-->
+                                                                  {% endfor %}
+                                                             </div>
+
+                                                       </div>
+                                                       <div class="random-sec mb-4 mb-lg-3">
+                                                             <h6>Top Picks</h6>
+
+                                                             <div class="owl-carousel owl-theme">
+                                                                 {% for pic in pics %}
+                                                                  <div class="card myCard">
+                                                                       <img src="{{ pic.image.url }}" alt="Movie Image" class="img-fluid"/>
+                                                                  </div>
+<!--                                                                  <div class="card myCard">-->
+<!--                                                                       <img src="assets/img/myCard/card12.jpg" alt="Movie Image" class="img-fluid"/>-->
+<!--                                                                  </div>-->
+                                                                 {% endfor %}
+                                                             </div>
+
+                                                       </div>
+                                                       <div class="moreBtn">
+                                                             <button type="button" class="btn btn-more">Discover More</button>
+                                                       </div>
+                                                  </div>
+                                                  <div class="tab-pane fade mt-5" id="popular" role="tabpanel" aria-labelledby="popular-tab">
+                                                       <div class="popular-sec mb-lg-5">
+                                                              <h6>Trending</h6>
+                                                              <div class="swiper mySwiper popularImageBox">
+                                                                   <div class="swiper-wrapper">
+                                                                        <div class="swiper-slide">
+                                                                             <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                                                                        </div>
+                                                                        <div class="swiper-slide">
+                                                                             <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                                                                        </div>
+                                                                        <div class="swiper-slide">
+                                                                             <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                                                                        </div>
+                                                                        <div class="swiper-slide">
+                                                                             <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                                                                        </div>
+                                                                        <div class="swiper-slide">
+                                                                             <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                                                                        </div>
+                                                                        <div class="swiper-slide">
+                                                                             <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                                                                        </div>
+                                                                        <div class="swiper-slide">
+                                                                             <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+                                                                        </div>
+                                                                        <div class="swiper-slide">
+                                                                             <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                                                                        </div>
+                                                                        <div class="swiper-slide">
+                                                                           <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                                                                      </div>
+                                                                   </div>
+                                                                   <div class="swiper-pagination"></div>
+                                                              </div>
+                                                        </div>
+                                                        <div class="popular-sec">
+                                                          <h6>Recommended</h6>
+                                                          <div class="swiper mySwiper popularImageBox">
+                                                               <div class="swiper-wrapper">
+                                                                    <div class="swiper-slide">
+                                                                         <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                                                                    </div>
+                                                                    <div class="swiper-slide">
+                                                                         <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                                                                    </div>
+                                                                    <div class="swiper-slide">
+                                                                         <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                                                                    </div>
+                                                                    <div class="swiper-slide">
+                                                                         <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                                                                    </div>
+                                                                    <div class="swiper-slide">
+                                                                         <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                                                                    </div>
+                                                                    <div class="swiper-slide">
+                                                                         <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                                                                    </div>
+                                                                    <div class="swiper-slide">
+                                                                         <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+                                                                    </div>
+                                                                    <div class="swiper-slide">
+                                                                         <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                                                                    </div>
+                                                                    <div class="swiper-slide">
+                                                                       <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                                                                  </div>
+                                                               </div>
+                                                               <div class="swiper-pagination"></div>
+                                                          </div>
+                                                        </div>
+                                                        <div class="moreBtn">
+                                                             <button type="button" class="btn btn-more">Discover More</button>
+                                                        </div>
+                                                  </div>
+                                                  <div class="tab-pane fade mt-5" id="recent" role="tabpanel" aria-labelledby="recent-tab">
+                                                       <div class="recent-sec mb-5">
+                                                            <h6>New Releases</h6>
+                                                            <div class="imageFlexCard">
+                                                                 <img src="assets/img/imgCard/imgCard1.webp" alt="" class="img-fluid" />
+                                                                 <img src="assets/img/imgCard/imgCard2.webp" alt="" class="img-fluid" />
+                                                                 <img src="assets/img/imgCard/imgCard3.jpg" alt="" class="img-fluid" />
+                                                                 <img src="assets/img/imgCard/imgCard4.jpg" alt="" class="img-fluid" />
+                                                                 <img src="assets/img/imgCard/imgCard5.jpg" alt="" class="img-fluid" />
+                                                            </div>
+                                                       </div>
+                                                       <div class="recent-sec mb-5">
+                                                            <h6>On Demand</h6>
+                                                            <div class="imageFlexCard">
+                                                                 <img src="assets/img/imgCard/imgCard1.webp" alt="" class="img-fluid" />
+                                                                 <img src="assets/img/imgCard/imgCard2.webp" alt="" class="img-fluid" />
+                                                                 <img src="assets/img/imgCard/imgCard3.jpg" alt="" class="img-fluid" />
+                                                                 <img src="assets/img/imgCard/imgCard4.jpg" alt="" class="img-fluid" />
+                                                                 <img src="assets/img/imgCard/imgCard5.jpg" alt="" class="img-fluid" />
+                                                            </div>
+                                                       </div>
+                                                       <div class="moreBtn">
+                                                            <button type="button" class="btn btn-more">Discover More</button>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                   </div>
+                             </div>
+                        </div>
+                   </div>
+               </section>
+               <!-- carousel slider section ends -->
+
+               <!-- promo section starts -->
+               <section class="promo-sec">
+                     <div class="bg-video-sec">
+                          <img src="{% static 'assets/img/videos/poster3.png' %}" class="img-fluid" alt="video"/>
+                          <a href="{% static 'assets/img/videos/video3.mp4' %}" target="_self"><span></span></a>
+                     </div>
+                     <div class="total-videos">
+                          <div class="video-box1">
+                               <img src="{% static 'assets/img/videos/poster1.png' %}" class="img-fluid" alt="video"/>
+                               <a href="{% static 'assets/img/videos/video1.mp4' %}" target="_self"><span></span></a>
+                          </div>
+                          <div class="video-box2 video-box1">
+                               <img src="{% static 'assets/img/videos/poster4.png' %}" class="img-fluid" alt="video"/>
+                               <a href="{% static 'assets/img/videos/video4.mp4' %}" target="_self"><span></span></a>
+                          </div>
+                          <div class="video-box3 video-box1">
+                               <img src="{% static 'assets/img/videos/poster2.png' %}" class="img-fluid" alt="video"/>
+                               <a href="{% static 'assets/img/videos/video2.mp4' %}" target="_self"><span></span></a>
+                          </div>
+                     </div>
+               </section>
+               <!-- promo section ends -->
+
+               <!-- films section starts -->
+               <section class="films-sec">
+                    <div class="container">
+                          <div class="film-headingsec">
+                               <h4>Our Best Films</h4>
+                               <h2>Featured Films</h2>
+                               <p>Have a look at our best films which are high in quality and receive positive responses from audience.</p>
+                          </div>
+                          <div class="film-contentsec">
+                               <div class="row">
+                                   {% for film in films %}
+                                    <div class="col-sm-6 col-md-4">
+
+                                         <div class="card">
+                                            <div class="card-header">
+                                                 <img src="{{ film.image.url }}" class="img-fluid" alt="MovieImage">
+                                            </div>
+                                            <div class="card-body">
+                                                 <div class="sub-topic">
+                                                     <h4>{{ film.film_name }}</h4>
+                                                     <span>{{ film.film_type }}</span>
+                                                 </div>
+                                                 <div>
+                                                     <ul>
+                                                         <li>
+                                                             <span class="view"></span>
+                                                             <label>{{ film.views}} Views</label>
+                                                         </li>
+                                                         <li>
+                                                             <span class="comment"></span>
+                                                             <label>{{ film.comments}} Comments</label>
+                                                         </li>
+                                                     </ul>
+                                                 </div>
+                                            </div>
+                                      </div>
+
+                                    </div>
+                                   {% endfor %}
+
+                               </div>
+                        </div>
+                    </div>
+               </section>
+               <!-- films section ends -->
+
+               <!-- imageSlider section starts -->
+               <section class="image-slidersec">
+                    <div class="container">
+                          <div class="slider-sec">
+                              {% for banner in banners %}
+                               <input type="radio" name="slider"  checked />
+<!--                               <input type="radio" name="slider" id="s2" />-->
+<!--                               <input type="radio" name="slider" id="s3" />-->
+<!--                               <input type="radio" name="slider" id="s4" />-->
+<!--                               <input type="radio" name="slider" id="s5" />-->
+<!--                               <input type="radio" name="slider" id="s6" />-->
+<!--                               <input type="radio" name="slider" id="s7" />-->
+<!--                               <input type="radio" name="slider" id="s8" />-->
+<!--                               <input type="radio" name="slider" id="s9" />-->
+<!--                               <input type="radio" name="slider" id="s10" />-->
+
+                               <label id="slide1"><img src="{{ banner.image.url }}" alt="" class="img-fluid"/></label>
+<!--                               <label for ="s2" id="slide2"><img src="assets/img/img-slider/slider2.jpg" alt="" class="img-fluid"/></label>-->
+<!--                               <label for ="s3" id="slide3"><img src="assets/img/img-slider/slider3.jpg" alt="" class="img-fluid"/></label>-->
+<!--                               <label for ="s4" id="slide4"><img src="assets/img/img-slider/slider4.jpg" alt="" class="img-fluid"/></label>-->
+<!--                               <label for ="s5" id="slide5"><img src="assets/img/img-slider/slider5.jpg" alt="" class="img-fluid"/></label>-->
+<!--                               <label for ="s6" id="slide6"><img src="assets/img/img-slider/slider6.jpg" alt="" class="img-fluid"/></label>-->
+<!--                               <label for ="s7" id="slide7"><img src="assets/img/img-slider/slider7.jpg" alt="" class="img-fluid"/></label>-->
+<!--                               <label for ="s8" id="slide8"><img src="assets/img/img-slider/slider8.jpg" alt="" class="img-fluid"/></label>-->
+<!--                               <label for ="s9" id="slide9"><img src="assets/img/img-slider/slider9.jpg" alt="" class="img-fluid"/></label>-->
+<!--                               <label for ="s10" id="slide10"><img src="assets/img/img-slider/slider10.jpg" alt="" class="img-fluid"/></label>-->
+                              {% endfor %}
+                          </div>
+                    </div>
+               </section>
+               <!-- imageSlider section starts -->
+
+               <!-- device section starts -->
+               <section class="device-sec">
+                   <div class="container">
+                         <div class="icon-sec">
+                              <ul>
+                                  <li><i class="fa-solid fa-computer"></i></li>
+                                  <li><i class="fa-solid fa-laptop"></i></li>
+                                  <li><i class="fa-solid fa-tv-music"></i></li>
+                                  <li><i class="fa-solid fa-tablet-screen-button"></i></li>
+                                  <li><i class="fa-regular fa-mobile"></i></li>
+                              </ul>
+                         </div>
+                   </div>
+               </section>
+               <!-- device section ends -->
+
+               <!-- footer section starts -->
+               <footer class="bottom-bar">
+                 <div class="container">
+                      <div class="row">
+                           <div class="col-lg-4 mb-5 mb-lg-0">
+                                <div class="text-sec">
+                                    <h4>Fllow Us</h4>
+                                </div>
+                                <div class="social-icons">
+                                     <ul>
+                                          <li><a class="book" href="/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                          <li><a class="gram" href="/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                          <li><a class="twit" href="/"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                          <li><a class="tube" href="/"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                                     </ul>
+                                </div>
+                           </div>
+                           <div class="col-lg-4 mb-5 mb-lg-0">
+                                <div class="contact-sec">
+                                     <h4>Contact Us</h4>
+                                     <ul>
+                                         <li><a href="mailto:mirchimovies@shaderbytes.com">mirchimovies@shaderbytes.com</a></li>
+                                         <li><a href="/">P88, Lake Rd, Hemanta Mukherjee Sarani, lake Terrace, Ballygunge, Kolkata, West Bengal 700029</a></li>
+                                         <li><a href="tel:+070444 71111">+070444 71111</a></li>
+                                     </ul>
+                                </div>
+                           </div>
+                           <div class="col-lg-4">
+                                <div class="info-sec">
+                                     <h4>Who we are</h4>
+                                     <ul>
+                                         <li><a href="/">About</a></li>
+                                         <li><a href="/">Channels</a></li>
+                                         <li><a href="/">Videos</a></li>
+                                         <li><a href="/">Tv Shows</a></li>
+                                         <li><a href="/">Carrers</a></li>
+                                     </ul>
+                                </div>
+                           </div>
+                      </div>
+                 </div>
+               </footer>
+               <!-- footer section ends -->
+          </div>
+      </div>
+
+      <!--javascript stylesheet-->
+      <!-- Swiper Slider js -->
+      <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+      <!-- Micro-Slider JS by LGSE -->
+      <script src="https://cdn.jsdelivr.net/npm/micro-slider@1.0.9/dist/micro-slider.min.js"></script>
+      <!-- Hammer JS gesture library -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+      <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+
+      <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+      <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+      <script src="{% static 'assets/js/custom.js' %}"></script>
+  </body>
+</html>
