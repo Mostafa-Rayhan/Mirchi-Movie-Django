@@ -126,33 +126,12 @@
                                                               <h6>Trending</h6>
                                                               <div class="swiper mySwiper popularImageBox">
                                                                    <div class="swiper-wrapper">
+                                                                       {% for trending in trendings %}
                                                                         <div class="swiper-slide">
-                                                                             <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                                                                             <img src="{{ trending.image.url }}" />
                                                                         </div>
-                                                                        <div class="swiper-slide">
-                                                                             <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                                                                        </div>
-                                                                        <div class="swiper-slide">
-                                                                             <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                                                                        </div>
-                                                                        <div class="swiper-slide">
-                                                                             <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                                                                        </div>
-                                                                        <div class="swiper-slide">
-                                                                             <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                                                                        </div>
-                                                                        <div class="swiper-slide">
-                                                                             <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                                                                        </div>
-                                                                        <div class="swiper-slide">
-                                                                             <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                                                                        </div>
-                                                                        <div class="swiper-slide">
-                                                                             <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                                                                        </div>
-                                                                        <div class="swiper-slide">
-                                                                           <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-                                                                      </div>
+                                                                       {% endfor %}
+
                                                                    </div>
                                                                    <div class="swiper-pagination"></div>
                                                               </div>
@@ -161,33 +140,12 @@
                                                           <h6>Recommended</h6>
                                                           <div class="swiper mySwiper popularImageBox">
                                                                <div class="swiper-wrapper">
+                                                                   {% for recommend in recommends %}
                                                                     <div class="swiper-slide">
-                                                                         <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                                                                         <img src="{{ recommend.image.url }}" />
                                                                     </div>
-                                                                    <div class="swiper-slide">
-                                                                         <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                                                                    </div>
-                                                                    <div class="swiper-slide">
-                                                                         <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                                                                    </div>
-                                                                    <div class="swiper-slide">
-                                                                         <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                                                                    </div>
-                                                                    <div class="swiper-slide">
-                                                                         <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                                                                    </div>
-                                                                    <div class="swiper-slide">
-                                                                         <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                                                                    </div>
-                                                                    <div class="swiper-slide">
-                                                                         <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                                                                    </div>
-                                                                    <div class="swiper-slide">
-                                                                         <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                                                                    </div>
-                                                                    <div class="swiper-slide">
-                                                                       <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-                                                                  </div>
+                                                                   {% endfor %}
+
                                                                </div>
                                                                <div class="swiper-pagination"></div>
                                                           </div>
@@ -200,21 +158,25 @@
                                                        <div class="recent-sec mb-5">
                                                             <h6>New Releases</h6>
                                                             <div class="imageFlexCard">
-                                                                 <img src="assets/img/imgCard/imgCard1.webp" alt="" class="img-fluid" />
-                                                                 <img src="assets/img/imgCard/imgCard2.webp" alt="" class="img-fluid" />
-                                                                 <img src="assets/img/imgCard/imgCard3.jpg" alt="" class="img-fluid" />
-                                                                 <img src="assets/img/imgCard/imgCard4.jpg" alt="" class="img-fluid" />
-                                                                 <img src="assets/img/imgCard/imgCard5.jpg" alt="" class="img-fluid" />
+                                                                {% for new in news %}
+                                                                 <img src="{{ new.image.url }}" alt="" class="img-fluid" />
+                                                                {% endfor %}
+<!--                                                                 <img src="assets/img/imgCard/imgCard2.webp" alt="" class="img-fluid" />-->
+<!--                                                                 <img src="assets/img/imgCard/imgCard3.jpg" alt="" class="img-fluid" />-->
+<!--                                                                 <img src="assets/img/imgCard/imgCard4.jpg" alt="" class="img-fluid" />-->
+<!--                                                                 <img src="assets/img/imgCard/imgCard5.jpg" alt="" class="img-fluid" />-->
                                                             </div>
                                                        </div>
                                                        <div class="recent-sec mb-5">
                                                             <h6>On Demand</h6>
                                                             <div class="imageFlexCard">
-                                                                 <img src="assets/img/imgCard/imgCard1.webp" alt="" class="img-fluid" />
-                                                                 <img src="assets/img/imgCard/imgCard2.webp" alt="" class="img-fluid" />
-                                                                 <img src="assets/img/imgCard/imgCard3.jpg" alt="" class="img-fluid" />
-                                                                 <img src="assets/img/imgCard/imgCard4.jpg" alt="" class="img-fluid" />
-                                                                 <img src="assets/img/imgCard/imgCard5.jpg" alt="" class="img-fluid" />
+                                                                {% for demand in demands %}
+                                                                 <img src="{{ demand.image.url }}" alt="" class="img-fluid" />
+                                                                {% endfor %}
+<!--                                                                 <img src="assets/img/imgCard/imgCard2.webp" alt="" class="img-fluid" />-->
+<!--                                                                 <img src="assets/img/imgCard/imgCard3.jpg" alt="" class="img-fluid" />-->
+<!--                                                                 <img src="assets/img/imgCard/imgCard4.jpg" alt="" class="img-fluid" />-->
+<!--                                                                 <img src="assets/img/imgCard/imgCard5.jpg" alt="" class="img-fluid" />-->
                                                             </div>
                                                        </div>
                                                        <div class="moreBtn">

@@ -40,3 +40,31 @@ class BannerSlider(models.Model):
 
     def __str__(self):
         return self.name
+
+class Trending(models.Model):
+    name = models.CharField(max_length=300)
+    image = models.ImageField(upload_to='media/trending')
+
+    def __str__(self):
+        return self.name
+
+class Recommended(models.Model):
+    name = models.CharField(max_length=300)
+    image = models.ImageField(upload_to='media/recommended')
+
+    def __str__(self):
+        return self.name
+
+class NewReleases(models.Model):
+    name = models.CharField(max_length=300)
+    image = models.ImageField(upload_to='media/newReleases')
+
+    def __str__(self):
+        return self.name
+
+class OnDemand(models.Model):
+    name = models.CharField(max_length=300)
+    image = models.ImageField(upload_to='media/onDemand')
+
+    def __str__(self):
+        return self.name
