@@ -8044,9 +8044,40 @@ a.text-dark:focus, a.text-dark:hover {
 
 body {
   background-color: #040f16; }
+  body.light {
+    background: white; }
+
+.topbar-sec .theme-btn {
+  margin: 35px 0;
+  float: right;
+  inset: 0;
+  background: white;
+  width: 85px;
+  height: 150px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center; }
+  .topbar-sec .theme-btn .inner_rect {
+    background: white;
+    width: 70%;
+    height: 80%;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5); }
+    .topbar-sec .theme-btn .inner_rect div {
+      width: 100%;
+      height: 100%;
+      box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.9);
+      border-radius: 1px;
+      border-bottom: 10px solid rgba(0, 0, 0, 0.6);
+      background-image: linear-gradient(to bottom, transparent, transparent, transparent, rgba(0, 0, 0, 0.2));
+      cursor: pointer; }
+    .topbar-sec .theme-btn .inner_rect .active {
+      transform: rotateX(180deg); }
 
 .image-sec {
-  margin: 80px 0 120px 0; }
+  margin-bottom: 120px;
+  clear: both; }
   .image-sec .logo-sec {
     width: 100px; }
   .image-sec .textBox {
@@ -8363,12 +8394,12 @@ body {
       font-size: 18px;
       text-align: center;
       color: #FFFFFF;
-      text-transform: uppercase;
       margin-bottom: 10px; }
     .films-sec .film-headingsec h2 {
       text-align: center;
       font-size: 30px;
       font-family: "poppinsbold";
+      text-transform: uppercase;
       color: #ee2e55;
       margin-bottom: 5px; }
     .films-sec .film-headingsec p {
@@ -8434,6 +8465,11 @@ body {
   height: 350px;
   display: flex;
   justify-content: center; }
+  .image-slidersec h4 {
+    font-size: 18px;
+    text-align: center;
+    color: #ee2e55;
+    margin-bottom: 10px; }
   .image-slidersec .slider-sec {
     position: relative;
     width: 40%;

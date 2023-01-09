@@ -20,6 +20,7 @@
       <link rel="stylesheet" href="https://github.com/lgse/micro-slider" />
       <!-- Hammer JS gesture library -->
       <link rel="stylesheet" href="https://github.com/hammerjs/hammer.js" />
+      <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
 
       <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
       <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
@@ -30,6 +31,15 @@
   <body>
       <div id="wrapper">
           <div id="content-wrapper">
+              <!-- carousel section starts -->
+               <header class="topbar-sec">
+                     <div class="container">
+                          <div class="theme-btn">
+                               <div class="inner_rect"><div id="btn" onclick="activate ()"></div></div>
+                          </div>
+                     </div>
+                </header>
+               <!-- carousel section ends -->
                <!-- carousel section starts -->
                <section class="image-sec">
                     <div class="container">
@@ -193,24 +203,48 @@
 
                <!-- promo section starts -->
                <section class="promo-sec">
-                     <div class="bg-video-sec">
-                          <img src="{% static 'assets/img/videos/poster3.png' %}" class="img-fluid" alt="video"/>
-                          <a href="{% static 'assets/img/videos/video3.mp4' %}" target="_self"><span></span></a>
+                     <div class="bg-video-sec ml-5">
+                         {% for vdo in vdos %}
+                         <video
+                            id="my-video"
+                            class="video-js"
+                            controls
+                            preload="auto"
+                            width="1440"
+                            height="680"
+                            {% if vdo.thumb %}
+                            poster="{{ vdo.thumb.url }}"
+                            {% endif %}
+                            data-setup="{}"
+                          >
+                            <source src="{{ vdo.video.url }}" type="video/mp4" />
+<!--                            <source src="MY_VIDEO.webm" type="video/webm" />-->
+<!--                            <p class="vjs-no-js">-->
+<!--                              To view this video please enable JavaScript, and consider upgrading to a-->
+<!--                              web browser that-->
+<!--                              <a href="https://videojs.com/html5-video-support/" target="_blank"-->
+<!--                                >supports HTML5 video</a-->
+<!--                              >-->
+<!--                            </p>-->
+                          </video>
+                         {% endfor %}
+<!--                          <img src="{{ vdo.thumb.url }}" class="img-fluid" alt="video"/>-->
+<!--                          <a href="{{ vdo.video.url }}" target="_self"><span></span></a>-->
                      </div>
-                     <div class="total-videos">
-                          <div class="video-box1">
-                               <img src="{% static 'assets/img/videos/poster1.png' %}" class="img-fluid" alt="video"/>
-                               <a href="{% static 'assets/img/videos/video1.mp4' %}" target="_self"><span></span></a>
-                          </div>
-                          <div class="video-box2 video-box1">
-                               <img src="{% static 'assets/img/videos/poster4.png' %}" class="img-fluid" alt="video"/>
-                               <a href="{% static 'assets/img/videos/video4.mp4' %}" target="_self"><span></span></a>
-                          </div>
-                          <div class="video-box3 video-box1">
-                               <img src="{% static 'assets/img/videos/poster2.png' %}" class="img-fluid" alt="video"/>
-                               <a href="{% static 'assets/img/videos/video2.mp4' %}" target="_self"><span></span></a>
-                          </div>
-                     </div>
+<!--                     <div class="total-videos">-->
+<!--                          <div class="video-box1">-->
+<!--                               <img src="{% static 'assets/img/videos/poster1.png' %}" class="img-fluid" alt="video"/>-->
+<!--                               <a href="{% static 'assets/img/videos/video1.mp4' %}" target="_self"><span></span></a>-->
+<!--                          </div>-->
+<!--                          <div class="video-box2 video-box1">-->
+<!--                               <img src="{% static 'assets/img/videos/poster4.png' %}" class="img-fluid" alt="video"/>-->
+<!--                               <a href="{% static 'assets/img/videos/video4.mp4' %}" target="_self"><span></span></a>-->
+<!--                          </div>-->
+<!--                          <div class="video-box3 video-box1">-->
+<!--                               <img src="{% static 'assets/img/videos/poster2.png' %}" class="img-fluid" alt="video"/>-->
+<!--                               <a href="{% static 'assets/img/videos/video2.mp4' %}" target="_self"><span></span></a>-->
+<!--                          </div>-->
+<!--                     </div>-->
                </section>
                <!-- promo section ends -->
 
@@ -363,6 +397,7 @@
       <!-- Hammer JS gesture library -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
       <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+      <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
 
       <script src="{% static 'assets/js/jquery.min.js' %}"></script>
       <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>

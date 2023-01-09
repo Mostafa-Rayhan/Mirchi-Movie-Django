@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Collections, TopPicks, BestFilms, BannerSlider, Trending, Recommended, NewReleases, OnDemand
+from .models import Collections, TopPicks, BestFilms, BannerSlider, Trending, Recommended, NewReleases, OnDemand, Video
 
 # Create your views here.
 
@@ -14,6 +14,7 @@ def index(request):
     recommend = Recommended.objects.all()
     new = NewReleases.objects.all()
     demand = OnDemand.objects.all()
+    vdo = Video.objects.all()
 
 
     context = {
@@ -24,6 +25,7 @@ def index(request):
         'trendings': trending,
         'recommends': recommend,
         'news': new,
-        'demands': demand
+        'demands': demand,
+        'vdos': vdo
     }
     return render(request, 'index.html', context)

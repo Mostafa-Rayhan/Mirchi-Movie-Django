@@ -68,3 +68,11 @@ class OnDemand(models.Model):
 
     def __str__(self):
         return self.name
+
+class Video(models.Model):
+    caption = models.CharField(max_length=300)
+    video = models.FileField(upload_to='video/%y')
+    thumb = models.FileField(upload_to='thumb/%y', null=True, blank=True)
+
+    def __str__(self):
+        return self.caption

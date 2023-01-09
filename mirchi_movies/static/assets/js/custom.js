@@ -39,3 +39,10 @@ $(document).ready(function() {
         }
     });
 });
+
+// theme mode starts
+function activate() {
+	let btn = document.getElementById("btn");
+	btn.classList.toggle("active");
+	document.body.classList.toggle("light");
+}
