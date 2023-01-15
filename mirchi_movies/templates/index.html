@@ -297,29 +297,27 @@
                <!-- imageSlider section starts -->
                <section class="image-slidersec">
                     <div class="container">
+                        <h4>Your Weekend buddy for this week !</h4>
                           <div class="slider-sec">
                               {% for banner in banners %}
-                               <input type="radio" name="slider"  checked />
-<!--                               <input type="radio" name="slider" id="s2" />-->
-<!--                               <input type="radio" name="slider" id="s3" />-->
-<!--                               <input type="radio" name="slider" id="s4" />-->
-<!--                               <input type="radio" name="slider" id="s5" />-->
-<!--                               <input type="radio" name="slider" id="s6" />-->
-<!--                               <input type="radio" name="slider" id="s7" />-->
-<!--                               <input type="radio" name="slider" id="s8" />-->
-<!--                               <input type="radio" name="slider" id="s9" />-->
-<!--                               <input type="radio" name="slider" id="s10" />-->
+                              {% if forloop.counter == 1 %}
 
-                               <label id="slide1"><img src="{{ banner.image.url }}" alt="" class="img-fluid"/></label>
-<!--                               <label for ="s2" id="slide2"><img src="assets/img/img-slider/slider2.jpg" alt="" class="img-fluid"/></label>-->
-<!--                               <label for ="s3" id="slide3"><img src="assets/img/img-slider/slider3.jpg" alt="" class="img-fluid"/></label>-->
-<!--                               <label for ="s4" id="slide4"><img src="assets/img/img-slider/slider4.jpg" alt="" class="img-fluid"/></label>-->
-<!--                               <label for ="s5" id="slide5"><img src="assets/img/img-slider/slider5.jpg" alt="" class="img-fluid"/></label>-->
-<!--                               <label for ="s6" id="slide6"><img src="assets/img/img-slider/slider6.jpg" alt="" class="img-fluid"/></label>-->
-<!--                               <label for ="s7" id="slide7"><img src="assets/img/img-slider/slider7.jpg" alt="" class="img-fluid"/></label>-->
-<!--                               <label for ="s8" id="slide8"><img src="assets/img/img-slider/slider8.jpg" alt="" class="img-fluid"/></label>-->
-<!--                               <label for ="s9" id="slide9"><img src="assets/img/img-slider/slider9.jpg" alt="" class="img-fluid"/></label>-->
-<!--                               <label for ="s10" id="slide10"><img src="assets/img/img-slider/slider10.jpg" alt="" class="img-fluid"/></label>-->
+                                <input type="radio" name="slider" id="s{{forloop.counter}}" checked />
+
+                                {% else %}
+                                    <input type="radio" name="slider" id="s{{forloop.counter}}" />
+
+                              {%endif%}
+<!--                              <label for="s{{forloop.counter}}" id="slide{{forloop.counter}}"><img src="{{ banner.image.url }}" alt="" class="img-fluid"/></label>-->
+
+
+                              {% endfor %}
+
+                              {% for banner in banners %}
+
+                              <label for="s{{forloop.counter}}" id="slide{{forloop.counter}}"><img src="{{ banner.image.url }}" alt="" class="img-fluid"/></label>
+
+
                               {% endfor %}
                           </div>
                     </div>
